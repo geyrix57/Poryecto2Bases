@@ -46,10 +46,6 @@ public class Permiso {
     public String getNombre() {
         return nombre;
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
     
     public String generarSqlRole(){
         StringBuilder sql = new StringBuilder();
@@ -75,7 +71,11 @@ public class Permiso {
             sql.append("GRANT DELETE").append(" ON ").append(t.getNombre());
             sql.append(" TO ").append(this.nombre);
         }
-        return "Select";
+        return sql.toString();
+    }
+    
+    public int getHashCode(){
+        return nombre.hashCode();
     }
     
     private String nombre;
