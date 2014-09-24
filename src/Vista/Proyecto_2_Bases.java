@@ -6,6 +6,7 @@
 
 package Vista;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,6 +18,8 @@ import javafx.stage.Stage;
  * @author Geykel
  */
 public class Proyecto_2_Bases extends Application {
+    
+    
     
       @Override
     public void start(Stage stage) throws Exception {

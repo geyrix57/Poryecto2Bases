@@ -7,6 +7,7 @@
 package Clasificacion;
 
 import java.util.ArrayList;
+import javafx.beans.property.SimpleStringProperty;
 
 /**
  *
@@ -14,16 +15,20 @@ import java.util.ArrayList;
  */
 public class Tabla {
     public Tabla(String Nombre, ArrayList<String> Columnas){
-        this.Nombre = Nombre;
+        this.Nombre = new SimpleStringProperty(Nombre);
         this.Columnas = Columnas;
+        this.insert=new ArrayList();
+        this.update=new ArrayList();
+        this.delete=false;
+        this.select=false;
     }
 
     public String getNombre() {
-        return Nombre;
+        return Nombre.get();
     }
 
     public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+        this.Nombre = new SimpleStringProperty(Nombre);
     }
 
     public ArrayList<String> getColumnas() {
@@ -53,7 +58,39 @@ public class Tabla {
         if(str == null) return null;
         return str.toString();
     }
+
+    public ArrayList<String> getInsert() {
+        return insert;
+    }
+
     
-    private String Nombre;
+
+    public ArrayList<String> getUpdate() {
+        return update;
+    }
+
+   
+    public boolean isSelect() {
+        return select;
+    }
+
+    public void setSelect() {
+        this.select = !select;
+    }
+
+    public boolean isDelete() {
+        return delete;
+    }
+
+    public void setDelete() {
+        this.delete = !delete;
+    }
+    
+    
+    private SimpleStringProperty Nombre;
     private ArrayList<String> Columnas;
+    private ArrayList<String> insert;
+    private ArrayList<String> update;
+    private boolean select;
+    private boolean delete;
 }

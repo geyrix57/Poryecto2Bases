@@ -22,7 +22,7 @@ public class CategoriasModelo {
     public CategoriasModelo() {
         
         this.database = DataBase.getInstance();
-        tablas = new ArrayList();
+        this.tablas = FXCollections.observableArrayList();
         this.tablespaces = FXCollections.observableArrayList();
         this.tablespace = "USERS";
         this.consultaT2 = "SELECT TABLESPACE_NAME FROM DBA_DATA_FILES";
@@ -49,8 +49,7 @@ public class CategoriasModelo {
         }
         String consult2 = "SELECT TABLE_NAME FROM DBA_TABLES WHERE TABLESPACE_NAME LIKE '" + tablespace + "'";
         ResultSet result = this.database.ExecuteQuery(consult2);
-        this.tablas.clear();
-        
+        this.tablas.removeAll(tablas);     
         while (result.next()) {
             String tname = result.getString("TABLE_NAME");
             System.out.println(tname);
@@ -82,12 +81,19 @@ public class CategoriasModelo {
     public ObservableList getTablespaces() {
         return tablespaces;
     }
+    public ObservableList getTablas() {
+        return this.tablas;
+    }
+    
+    public void setTablespace(String tablespace){
+        this.tablespace= tablespace;
+    }
     
     private final DataBase database;
-    private final ArrayList<Tabla> tablas;
+    private final ObservableList<Tabla> tablas;
     private final ObservableList<String> tablespaces;
     
-    private final String tablespace;
+    private String tablespace;
     
     private final String consultaT2;
     

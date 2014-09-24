@@ -14,32 +14,18 @@
         <URL value="@categoria.css" />
     </stylesheets>
    <children>
-      <Label layoutX="14.0" layoutY="91.0" prefHeight="18.0" prefWidth="61.0" text="Buscar:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <TableView fx:id="Tablas" layoutX="14.0" layoutY="133.0" prefHeight="231.0" prefWidth="209.0" />
-      <TextField layoutX="66.0" layoutY="89.0" prefHeight="25.0" prefWidth="121.0" />
-      <Button id="Buscar" fx:id="Buscar" layoutX="191.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Buscar" textAlignment="CENTER">
+      <TableView layoutX="14.0" layoutY="133.0" prefHeight="231.0" prefWidth="209.0" />
+      <TextField layoutX="15.0" layoutY="88.0" prefHeight="25.0" prefWidth="135.0" />
+      <Button id="Buscar" fx:id="Buscar" layoutX="164.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Buscar" textAlignment="CENTER">
   
       </Button>
-      <TreeTableView fx:id="Permisos" layoutX="256.0" layoutY="130.0" prefHeight="300.0" prefWidth="347.0">
-        <columns>
-          <TreeTableColumn prefWidth="75.0" text="Tabla" />
-          <TreeTableColumn prefWidth="75.0" text="Insert" />
-            <TreeTableColumn prefWidth="75.0" text="Delete" />
-            <TreeTableColumn prefWidth="75.0" text="Update" />
-            <TreeTableColumn prefWidth="75.0" text="Select" />
-        </columns>
-      </TreeTableView>
       <Label layoutX="28.0" layoutY="26.0" prefHeight="32.0" prefWidth="94.0" text="Permisos">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       <Button layoutX="22.0" layoutY="385.0" mnemonicParsing="false" text="Crear" />
-      <ComboBox fx:id="tablespaces" layoutX="430.0" layoutY="89.0" prefWidth="150.0" />
+      <ComboBox fx:id="tablespaces" layoutX="430.0" layoutY="89.0" onAction="#handleTablespaces" prefWidth="150.0" />
       <Label layoutX="281.0" layoutY="89.0" prefHeight="25.0" prefWidth="94.0" text="TableSpace:">
          <font>
             <Font size="16.0" />
@@ -50,6 +36,7 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <TableView fx:id="Tablas" layoutX="269.0" layoutY="133.0" prefHeight="270.0" prefWidth="322.0" />
           
    </children>
 </AnchorPane>
