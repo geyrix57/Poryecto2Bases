@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="451.0" prefWidth="616.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controlador.UsuarioController">
+    <stylesheets>
+        <URL value="@usuario.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="406.0" layoutY="112.0" text="Usuario">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TableView layoutX="270.0" layoutY="153.0" prefHeight="231.0" prefWidth="328.0" />
+      <Label layoutX="38.0" layoutY="39.0" text="Usuarios">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="111.0" prefHeight="18.0" prefWidth="61.0" text="Buscar:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="Tablas" layoutX="34.0" layoutY="153.0" prefHeight="231.0" prefWidth="209.0" />
+      <TextField layoutX="86.0" layoutY="109.0" prefHeight="25.0" prefWidth="121.0" />
+      <Button id="Buscar" fx:id="Buscar" layoutX="211.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Buscar" textAlignment="CENTER" />
+      <Button layoutX="108.0" layoutY="399.0" mnemonicParsing="false" text="Crear" />
+   </children>
+</AnchorPane>

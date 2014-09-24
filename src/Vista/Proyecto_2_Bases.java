@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package proyecto_2_bases;
+package Vista;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,9 +18,9 @@ import javafx.stage.Stage;
  */
 public class Proyecto_2_Bases extends Application {
     
-    @Override
+      @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Categoria.fxml"));
         
         Scene scene = new Scene(root);
         

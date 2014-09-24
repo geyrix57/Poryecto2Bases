@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="436.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controlador.RolesController">
+    <stylesheets>
+        <URL value="@roles.css" />
+    </stylesheets>
+   <children>
+      <Button layoutX="98.0" layoutY="389.0" mnemonicParsing="false" text="Crear" />
+      <Button id="Buscar" fx:id="Buscar" layoutX="201.0" layoutY="98.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Buscar" textAlignment="CENTER" />
+      <TextField layoutX="76.0" layoutY="99.0" prefHeight="25.0" prefWidth="121.0" />
+      <TableView fx:id="Tablas" layoutX="24.0" layoutY="143.0" prefHeight="231.0" prefWidth="209.0" />
+      <Label layoutX="24.0" layoutY="101.0" prefHeight="18.0" prefWidth="61.0" text="Buscar:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="29.0" text="Roles">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TableView layoutX="260.0" layoutY="143.0" prefHeight="231.0" prefWidth="328.0" />
+      <Label layoutX="396.0" layoutY="102.0" text="Rol">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
