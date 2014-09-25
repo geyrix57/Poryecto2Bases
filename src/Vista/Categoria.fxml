@@ -14,7 +14,7 @@
         <URL value="@categoria.css" />
     </stylesheets>
    <children>
-      <TableView layoutX="14.0" layoutY="133.0" prefHeight="231.0" prefWidth="209.0" />
+      <TableView fx:id="Permisos" layoutX="14.0" layoutY="133.0" prefHeight="231.0" prefWidth="209.0" />
       <TextField layoutX="15.0" layoutY="88.0" prefHeight="25.0" prefWidth="135.0" />
       <Button id="Buscar" fx:id="Buscar" layoutX="164.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Buscar" textAlignment="CENTER">
   
@@ -24,7 +24,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button layoutX="22.0" layoutY="385.0" mnemonicParsing="false" text="Crear" />
+      <Button fx:id="Crear" layoutX="22.0" layoutY="385.0" mnemonicParsing="false" onAction="#CrearPermiso" text="Crear" />
       <ComboBox fx:id="tablespaces" layoutX="430.0" layoutY="89.0" onAction="#handleTablespaces" prefWidth="150.0" />
       <Label layoutX="281.0" layoutY="89.0" prefHeight="25.0" prefWidth="94.0" text="TableSpace:">
          <font>

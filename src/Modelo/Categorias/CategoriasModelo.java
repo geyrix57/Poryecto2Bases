@@ -90,8 +90,8 @@ public class CategoriasModelo {
     }
     
     private final DataBase database;
-    private final ObservableList<Tabla> tablas;
-    private final ObservableList<String> tablespaces;
+    private final ObservableList <Tabla> tablas;
+    private final ObservableList <String> tablespaces;
     
     private String tablespace;
     
