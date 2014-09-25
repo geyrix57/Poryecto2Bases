@@ -7,6 +7,8 @@
 package Clasificacion;
 
 import java.util.ArrayList;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -19,8 +21,9 @@ public class Tabla {
         this.Columnas = Columnas;
         this.insert=new ArrayList();
         this.update=new ArrayList();
-        this.delete=false;
-        this.select=false;
+        this.delete= new SimpleBooleanProperty (true);
+        delete.set(true);
+        this.select= new SimpleBooleanProperty (false);
     }
 
     public String getNombre() {
@@ -71,19 +74,19 @@ public class Tabla {
 
    
     public boolean isSelect() {
-        return select;
+        return select.get();
     }
 
     public void setSelect() {
-        this.select = !select;
+        this.select.set(!select.get());
     }
 
     public boolean isDelete() {
-        return delete;
+        return delete.get();
     }
 
     public void setDelete() {
-        this.delete = !delete;
+        this.delete.set(!delete.get());
     }
     
     
@@ -91,6 +94,6 @@ public class Tabla {
     private ArrayList<String> Columnas;
     private ArrayList<String> insert;
     private ArrayList<String> update;
-    private boolean select;
-    private boolean delete;
+    private BooleanProperty select;
+    private BooleanProperty delete;
 }

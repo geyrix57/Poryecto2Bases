@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Clasificacion.Tabla;
 import Modelo.BaseDatos.DataBase;
 import Modelo.Categorias.CategoriasModelo;
 import java.net.URL;
@@ -12,14 +13,18 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.SingleSelectionModel;
+
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeTableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CategoriaController implements Initializable {
@@ -28,25 +33,36 @@ public class CategoriaController implements Initializable {
     Button Buscar;
     @FXML
     TableView Tablas;
-    @FXML
-    TreeTableView Permisos;
+
     @FXML
     ComboBox tablespaces;
+    @FXML
+    Button guardarCambios;
 
     CategoriasModelo modelo;
 
     @FXML
+    public void GuardarCambios(ActionEvent event) {
+        for (Object p : (ObservableList) this.Tablas.getItems()) {
+            Tabla t = (Tabla) p;
+            System.out.println(t.getNombre() + t.isDelete() + t.isSelect());
+
+        }
+        System.out.println();
+    }
+
+    @FXML
     private void handleTablespaces() throws SQLException {
         System.out.println(tablespaces.getSelectionModel().getSelectedItem() + "\n");
-        String tsname=(String) tablespaces.getSelectionModel().getSelectedItem();
-        if (tsname==null) {
+        String tsname = (String) tablespaces.getSelectionModel().getSelectedItem();
+        if (tsname == null) {
             this.modelo.ActualizarListaTablas("USERS");
         } else {
             this.modelo.ActualizarListaTablas(tablespaces.getSelectionModel().getSelectedItem().toString());
         }
         this.Tablas.setItems(modelo.getTablas());
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Tablas.setEditable(true);
@@ -63,16 +79,22 @@ public class CategoriaController implements Initializable {
 
         this.tablespaces.setItems(modelo.getTablespaces());
         this.tablespaces.setValue(modelo.getTablespaces().get(0));
-       
+        this.Tablas.setItems(modelo.getTablas());
+        TableColumn<Tabla, String> name = new TableColumn("Tabla");
 
-        TableColumn name = new TableColumn("Tabla");
+        TableColumn<Tabla, Boolean> select = new TableColumn<>("select");
+        TableColumn<Tabla, Boolean> delete = new TableColumn<>("delete");
+        TableColumn update = new TableColumn("update");
+        TableColumn insert = new TableColumn("insert");
+
         name.setCellValueFactory(new PropertyValueFactory<>("Nombre"));
-        TableColumn insert = new TableColumn("Insert");
-        TableColumn update = new TableColumn("Update");
-        TableColumn select = new TableColumn("Select");
-        TableColumn delete = new TableColumn("Delete");
-        
-        this.Tablas.getColumns().addAll(name,insert,update,select,delete);
+        select.setCellValueFactory(new PropertyValueFactory("select"));
+        select.setCellFactory(CheckBoxTableCell.forTableColumn(select));
+        select.setEditable(true);
+        delete.setCellValueFactory(new PropertyValueFactory("delete"));
+        delete.setCellFactory(CheckBoxTableCell.forTableColumn(delete));
+        delete.setEditable(true);
+        this.Tablas.getColumns().addAll(name, insert, update, select, delete);
         this.Tablas.setItems(modelo.getTablas());
 
     }
