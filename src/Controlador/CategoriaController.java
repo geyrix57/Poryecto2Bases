@@ -67,7 +67,7 @@ public class CategoriaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         Tablas.setEditable(true);
         DataBase basedatos = DataBase.getInstance();
-        basedatos.setConnection("localhost", 1521, "XE", "sys as sysdba", "root");
+        basedatos.setConnection("localhost", 1521, "BD1", "sys as sysdba", "gkl123");
         modelo = new CategoriasModelo();
         try {
             modelo.ActualizarTablespace();
