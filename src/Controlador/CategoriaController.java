@@ -45,7 +45,7 @@ public class CategoriaController implements Initializable {
     public void GuardarCambios(ActionEvent event) {
         for (Object p : (ObservableList) this.Tablas.getItems()) {
             Tabla t = (Tabla) p;
-            System.out.println(t.getNombre() + t.isDelete() + t.isSelect());
+             System.out.println(t.getNombre() + t.isDelete() + t.isSelect());
 
         }
         System.out.println();
@@ -88,12 +88,13 @@ public class CategoriaController implements Initializable {
         TableColumn insert = new TableColumn("insert");
 
         name.setCellValueFactory(new PropertyValueFactory<>("Nombre"));
-        select.setCellValueFactory(new PropertyValueFactory("select"));
+        select.setCellValueFactory(new PropertyValueFactory <>("select"));
         select.setCellFactory(CheckBoxTableCell.forTableColumn(select));
         select.setEditable(true);
-        delete.setCellValueFactory(new PropertyValueFactory("delete"));
+        delete.setCellValueFactory(new PropertyValueFactory <>("delete"));
         delete.setCellFactory(CheckBoxTableCell.forTableColumn(delete));
         delete.setEditable(true);
+        this.Tablas.setEditable(true);
         this.Tablas.getColumns().addAll(name, insert, update, select, delete);
         this.Tablas.setItems(modelo.getTablas());
 
